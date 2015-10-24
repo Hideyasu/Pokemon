@@ -1,0 +1,130 @@
+﻿<html lang=ja>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" href="css/jquery.sidr.light.css">
+		<title>ヒデヤス</title>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/t.min.js"></script>
+		<script src="js/jquery.sidr.min.js"></script>
+	</head>
+	<body>
+
+<div>
+		<div id="img">
+			<img src="pic/001_フシギダネ.png"alt="フシギダネ">	
+		</div>
+		<div id="audio">
+			<audio src="music/フシギダネ.wav" autoplay></audio>
+		</div>
+		<div id="data">
+			<div class="s_data">
+				フシギダネ No.001<br>
+				たねポケモン<br><br>
+				たかさ		0.7m<br>
+				おもさ		6.9kg
+			</div>
+		</div>
+</div>
+<a id="simple-menu" href="#sidr">メニュー</a>
+   
+<div id="sidr">
+  <ul>
+    	<li><a href="#">ずかん</a></li>
+    	<li><a href="#">ポケモン</a></li>
+    	<li><a href="#">どうぐ</a></li>
+    	<li><a href="#" id="hero">レッド</a></li>
+    	<li><a href="form.html">レポート</a></li>
+	<li><a href="#">せってい</a></li>
+	<li><a href="top.html">とじる</a></li>
+  </ul>
+</div>
+   
+<script>
+name = "レッド"
+name =localStorage.name;
+document.getElementById("hero").innerHTML =name
+$(document).ready(function() {
+  $('#simple-menu').sidr({
+      name: 'sidr',
+      side: 'left'
+    });});
+</script>
+		<div id="txt">
+			<div class="t_data">なんにちだって　なにも　たべなくても<br>げんき！<br>せなかのタネに　たくさん　えいようが<br>あるから　へいきだ！</div></div>
+
+<script>
+			flag=1;
+			$(function(){
+				document.querySelector(".t_data").style.visibility="hidden"
+				$(".s_data").t({fin:function(e){t_data();}})
+			});
+
+			function s_data(){
+				flag=1
+				$(function(){
+					$(".s_data").t({fin:function(e){t_data();}})
+				});
+			
+			document.querySelector(".t_data").style.visibility="hidden"
+}
+			function t_data(){
+				$(function(){
+					document.querySelector(".t_data").style.visibility="visible";
+					$(".t_data").t({fin:function(e){flag=0;}})
+				});
+			}
+</script>
+		<script>
+			var i=0;
+			var img =[];
+			var data=[];
+			var txt =[];
+			var audio=[];
+			img[0]='<img src="pic/001_フシギダネ.png"alt="フシギダネ">';
+			img[1]='<img src="pic/002_フシギソウ.png"alt="フシギソウ">';
+			img[2]='<img src="pic/003_フシギバナ.png"alt="フシギソウ">';
+			data[0]='<div class="s_data">フシギダネ No.001<br>たねポケモン<br><br>たかさ		0.7m<br>おもさ		6.9kg			</div>';
+			data[1]='<div class="s_data">フシギソウ No.002<br>たねポケモン<br><br>たかさ		1.0m<br>おもさ		13.0kg			</div>';
+			data[2]='<div class="s_data">フシギバナ No.003<br>たねポケモン<br><br>たかさ		2.0m<br>おもさ		100.0kg			</div>';
+			txt[0]='<div class="t_data">なんにちだって　なにも　たべなくても<br>げんき！<br>せなかのタネに　たくさん　えいようが<br>あるから　へいきだ！</div>';
+			txt[1]='<div class="t_data">ようぶんを　とって　おおきくなった<br>つぼみから　かおりが　ただよいだすと　もうすぐ　ハナがひらく　しょうこだ。</div>';
+			txt[2]='<div class="t_data">せなかに　はえた　おおきな　ハナは<br>たいようの　ひかりを　きゅうしゅうし<br>エネルギーに　へんかん　できる。</div>';
+			audio[0]='<audio src="music/フシギダネ.wav" autoplay></audio>';
+			audio[1]='<audio src="music/フシギソウ.wav" autoplay></audio>';
+			audio[2]='<audio src="music/フシギバナ.wav" autoplay></audio>';
+			$(function(){
+	    		var mousewheelevent = 'onwheel' in document ? 'wheel' : 'onmousewheel' in document ? 'mousewheel' : 'DOMMouseScroll';
+		    		$(document).on(mousewheelevent,function(e){
+		      	  	e.preventDefault();
+	        		var delta = e.originalEvent.deltaY ? -(e.originalEvent.deltaY) : e.originalEvent.wheelDelta ? e.originalEvent.wheelDelta : -(e.originalEvent.detail);
+		        	if(flag==0){
+						if (delta < 0){
+							if(i==2){
+								i=0;	
+							}else{
+								i+=1;
+							}
+							document.querySelector("#img").innerHTML=img[i];
+							document.querySelector("#data").innerHTML=data[i];
+							document.querySelector("#txt").innerHTML=txt[i];
+							document.querySelector("#audio").innerHTML=audio[i];
+							s_data();
+											
+		    			} else {
+							if(i<1){
+								i=img.length;	
+							}
+							i-=1;
+							document.querySelector("#img").innerHTML=img[i];
+							document.querySelector("#data").innerHTML=data[i];
+							document.querySelector("#txt").innerHTML=txt[i];
+							document.querySelector("#audio").innerHTML=audio[i];
+							s_data();
+		    			}
+					}
+    			});
+			});
+		</script>
+</body>
+</html>

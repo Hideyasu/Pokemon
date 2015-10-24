@@ -1,0 +1,31 @@
+﻿<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/top.css">
+	<title>ヒデヤス</title>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/t.min.js"></script>
+	<script>
+		$(function(){
+			$("#doctor").t()
+		});
+	</script> 
+</head>
+<body>
+
+	<div  style="text-align:center">
+		<img src="pic/オーキド.png">
+	</div>
+	
+	<div id="txt">
+		<div id="doctor">では　はじめに　きみの　なまえを<br>おしえて　もらおう！</doctor><br>
+		<input type="text" value="レッド" id="name">
+		<input type="button" value="決定！" onClick="setname()" id="txt_box">
+		<script type="text/javascript">
+		function setname(){
+			localStorage.setItem("name",document.getElementById("name").value);
+			window.location="index.html"
+		}</script>
+	</div>
+</body>
+</html>

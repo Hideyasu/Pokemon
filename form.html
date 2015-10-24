@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/form.css">
+	<title>ヒデヤス</title>
+	<script type="text/javascript">
+		function check(){
+				var flag=0;
+				if(document.form.demand.value==""){
+					flag=1;
+				}
+				if(flag){
+					window.alert('何か入力してください！');
+					return false;
+				}else{
+					return true;
+				}
+			}
+	</script>
+</head>
+<body>
+	<form action="#" method="post" name="form" onSubmit="return check()">
+	<p>
+		<label for="pokemon" id="pk">好きなポケモンを選択してください：</label>
+		<select id="pokemon" name="pokemon">
+			<option value="001">フシギダネ</option>
+			<option value="002">フシギソウ</option>
+			<option value="003">フシギバナ</option>
+			<option value="004">004</option>
+			<option value="005">005</option>
+			<option value="006">006</option>
+			<option value="007">007</option>
+			<option value="008">008</option>
+			<option value="009">009</option>
+			<option value="010">010</option>
+			<option value="011">011</option>
+			<option value="012">012</option>
+		</select>
+	</p>
+	<p>
+		<label for="demand" id="de">その他、ご要望があれば記入してください(必須)：</label><br>
+		<textarea id="demand" name="demand" cols="40" rows="4" maxlength="20"></textarea>
+	</p>
+	<p>
+		<input type="submit" value="送信" id="send">
+	</p>
+	<div>
+		<a href="top.html" id="top">topへもどる</a>
+	</div>
+</body>
+</html>
